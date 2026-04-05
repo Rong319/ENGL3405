@@ -1556,6 +1556,7 @@ button { font-family: var(--font-main); cursor: none; }
   border-radius: 4px;
 }
 .s2-benchmark-media-link:hover img { border-color: rgba(255,255,255,0.3); }
+.s2-benchmark-video-wrap iframe,
 .s2-benchmark-video-wrap video {
   width: 100%;
   display: block;
@@ -2058,7 +2059,7 @@ button { font-family: var(--font-main); cursor: none; }
 .s1-ev-media-link { display: block; margin: 20px 0 8px; text-decoration: none; }
 .s1-ev-media-link:hover .s1-ev-img-inline { border-color: rgba(255,255,255,0.3); }
 .s1-ev-video-wrap { margin: 20px 0 8px; }
-.s1-ev-video-el { width: 100%; display: block; border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; }
+.s1-ev-video-el { width: 100%; aspect-ratio: 16/9; display: block; border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; }
 .s1-ev-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
