@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRESSURE LINE — Broadcast the Labor Beneath the Beauty</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- SCROLL PROGRESS BAR -->
+  <div class="scroll-progress">
+    <div class="scroll-bar" id="scrollBar"></div>
+  </div>
+
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor" id="cursor"></div>
+
+  <!-- ============================================================
+       NAV
+  ============================================================ -->
+  <nav id="nav">
+    <div class="nav-logo">
+      <div class="logo-mark">
+        <span class="logo-p">P</span>
+        <div class="logo-line"></div>
+        <span class="logo-l">L</span>
+      </div>
+      <div class="logo-wordmark">PRESSURE LINE</div>
+    </div>
+    <div class="nav-links">
+      <a href="#position">POSITION</a>
+      <a href="#guidebook">GUIDEBOOK</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       01 HERO
+       — mermaid-canvas: animated 3D-ish mermaid silhouette (lower layer)
+       — hero-canvas: water surface sine waves (upper layer)
+       — text and red pressure line on top
+  ============================================================ -->
+  <section id="hero">
+    <!-- Photo layer — real underwater shot, filtered dark -->
+    <div class="hero-photo">
+      <img src="assets/images/hero.png" alt="China Mermaid Open">
+    </div>
+    <!-- Canvas layer — animated water caustic overlay only -->
+    <canvas id="mermaidCanvas"></canvas>
+    <canvas id="heroCanvas"></canvas>
+
+    <div class="hero-pressure-line" id="pressureLine">
+      <span class="pressure-line-label">THE PRESSURE LINE</span>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-title">
+        <span class="hero-word" id="word1">PRESSURE</span>
+        <span class="hero-word" id="word2">LINE</span>
+      </div>
+      <div class="hero-sub">
+        <p class="dim">Current coverage teaches audiences to feel.</p>
+        <p class="bright">We teach them to read.</p>
+      </div>
+      <div class="hero-descriptor">
+        A broadcaster for authored sport &nbsp;·&nbsp; China Mermaid Open &nbsp;·&nbsp; Season 2026
+      </div>
+      <div class="hero-scroll">↓&nbsp;&nbsp;Scroll to Enter</div>
+    </div>
+
+    <div class="hero-vertical">CHINA MERMAID OPEN</div>
+  </section>
+
+  <!-- ============================================================
+       02 MANIFESTO — RHETORICAL POSITION
+  ============================================================ -->
+  <section id="position" class="manifesto">
+    <div class="s-label">
+      <span class="s-num">02</span>
+      <span class="s-name">RHETORICAL POSITION</span>
+    </div>
+
+    <div class="manifesto-layout">
+      <div class="manifesto-empty"></div>
+      <div class="manifesto-accent"><div class="red-vline"></div></div>
+      <div class="manifesto-headline">
+        <h2 class="big-type">
+          <span class="type-line">THE SPORT</span>
+          <span class="type-line">ALREADY HAS</span>
+          <span class="type-line">A SCORING SYSTEM</span>
+          <span class="type-line">BUILT ON</span>
+          <span class="type-line">AUTHORSHIP<span class="red-period">.</span></span>
+        </h2>
+        <h2 class="big-type" style="margin-top:32px">
+          <span class="type-line">ITS BROADCAST</span>
+          <span class="type-line">COVERAGE DOES</span>
+          <span class="type-line">NOT YET KNOW</span>
+          <span class="type-line">HOW TO SAY SO<span class="red-period">.</span></span>
+        </h2>
+      </div>
+    </div>
+
+    <div class="manifesto-body">
+      <div class="body-empty"></div>
+      <div class="body-col">
+        <p>The China Mermaid Open scores every performance across four dimensions — movement completion, technical difficulty, performance expression, and creative choreography — with nearly fifty individually valued elements. Since 2025, a dedicated art panel evaluates choreography, artistic expression, and cultural integration separately.</p>
+        <p><strong>The rules already treat athletes as authors.</strong></p>
+      </div>
+      <div class="body-gap"></div>
+      <div class="body-col">
+        <p>Current broadcast coverage doesn't use that language.</p>
+        <p>It teaches audiences to feel before it gives them anything to read. Work titles become mood cues. Scores become verdicts. The athlete's compositional choices disappear into atmosphere.</p>
+        <p><strong>Pressure Line broadcasts what the scoring system already describes.</strong></p>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-item" style="--offset: 0px">
+        <div class="stat-number" data-target="50">0</div>
+        <div class="stat-plus">+</div>
+        <div class="stat-label">Scored Elements</div>
+        <div class="stat-sub">per performance</div>
+      </div>
+      <div class="stat-item" style="--offset: 24px">
+        <div class="stat-number" data-target="70">0</div>
+        <div class="stat-plus">+</div>
+        <div class="stat-label">Athletes</div>
+        <div class="stat-sub">10 countries &amp; regions</div>
+      </div>
+      <div class="stat-item" style="--offset: 8px">
+        <div class="stat-number" data-target="4">0</div>
+        <div class="stat-plus"></div>
+        <div class="stat-label">Scoring Dimensions</div>
+        <div class="stat-sub">movement · difficulty · expression · choreography</div>
+      </div>
+      <div class="stat-item" style="--offset: 40px">
+        <div class="stat-number" data-target="10">0</div>
+        <div class="stat-plus">+</div>
+        <div class="stat-label">Legs / Season</div>
+        <div class="stat-sub">national circuit</div>
+      </div>
+    </div>
+
+    <div class="dark-bar">
+      <span class="dark-bar-left">Broadcast the Labor Beneath the Beauty</span>
+      <span class="dark-bar-right">China Mermaid Open · Season 2026</span>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PHOTO STRIP
+       Row 1: competition photos with annotation labels (scroll left)
+       Row 2: data ticker — real stats vs. broadcast omissions (scroll right)
+  ============================================================ -->
+  <div class="photo-strip">
+
+    <!-- Row 1: annotated photos -->
+    <div class="strip-row strip-row-1">
+      <div class="strip-track" id="track1">
+        <!-- set A -->
+        <div class="strip-photo">
+          <img src="assets/images/comp-01.jpg" alt="Competition">
+          <div class="strip-label">WORK TITLE: UNNAMED</div>
+        </div>
+        <div class="strip-photo">
+          <img src="assets/images/comp-02.jpg" alt="Competition">
+          <div class="strip-label">SCORE GAP: UNEXPLAINED</div>
+        </div>
+        <div class="strip-photo">
+          <img src="assets/images/comp-03.jpg" alt="Competition">
+          <div class="strip-label">CULTURAL SOURCE: UNNAMED</div>
+        </div>
+        <div class="strip-photo">
+          <img src="assets/images/comp-04.jpg" alt="Competition">
+          <div class="strip-label">ATHLETE AS IMAGE — NOT AUTHOR</div>
+        </div>
+        <div class="strip-photo">
+          <img src="assets/images/comp-05.jpg" alt="Competition">
+          <div class="strip-label">DIFFICULTY TIER: NEVER CITED</div>
+        </div>
+        <div class="strip-photo">
+          <img src="assets/images/comp-06.jpg" alt="Competition">
+          <div class="strip-label">CHOREOGRAPHIC INTENT: IGNORED</div>
+        </div>
+        <div class="strip-photo">
+          <img src="assets/images/comp-07.jpg" alt="Competition">
+          <div class="strip-label">SCORING MECHANISM: ABSENT</div>
+        </div>
+        <div class="strip-photo">
+          <img src="assets/images/comp-08.jpg" alt="Competition">
+          <div class="strip-label">MOVEMENT NAME: NOT GIVEN</div>
+        </div>
+        <!-- set B — seamless loop duplicate -->
+        <div class="strip-photo">
+          <img src="assets/images/comp-01.jpg" alt="Competition">
+          <div class="strip-label">WORK TITLE: UNNAMED</div>
+        </div>
+        <div class="strip-photo">
+          <img src="assets/images/comp-02.jpg" alt="Competition">
+          <div class="strip-label">SCORE GAP: UNEXPLAINED</div>
+        </div>
+        <div class="strip-photo">
+          <img src="assets/images/comp-03.jpg" alt="Competition">
+          <div class="strip-label">CULTURAL SOURCE: UNNAMED</div>
+        </div>
+        <div class="strip-photo">
+          <img src="assets/images/comp-04.jpg" alt="Competition">
+          <div class="strip-label">ATHLETE AS IMAGE — NOT AUTHOR</div>
+        </div>
+        <div class="strip-photo">
+          <img src="assets/images/comp-05.jpg" alt="Competition">
+          <div class="strip-label">DIFFICULTY TIER: NEVER CITED</div>
+        </div>
+        <div class="strip-photo">
+          <img src="assets/images/comp-06.jpg" alt="Competition">
+          <div class="strip-label">CHOREOGRAPHIC INTENT: IGNORED</div>
+        </div>
+        <div class="strip-photo">
+          <img src="assets/images/comp-07.jpg" alt="Competition">
+          <div class="strip-label">SCORING MECHANISM: ABSENT</div>
+        </div>
+        <div class="strip-photo">
+          <img src="assets/images/comp-08.jpg" alt="Competition">
+          <div class="strip-label">MOVEMENT NAME: NOT GIVEN</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2: data ticker -->
+    <div class="strip-row strip-row-2">
+      <div class="strip-track ticker-track" id="track2">
+        <!-- set A -->
+        <span class="ticker-item">50+ SCORED ELEMENTS</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item">4 SCORING DIMENSIONS</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item red">0 WORK TITLES NAMED ON BROADCAST</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item">70+ ATHLETES</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item red">40-PT GAP — MECHANISM UNEXPLAINED</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item">10 REGIONS REPRESENTED</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item red">"MERMAID IMAGE" — NOT COMPETITOR AT WORK</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item">NATIONAL INTANGIBLE HERITAGE IN COMPETITION</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item red">CULTURAL AUTHORSHIP: UNNAMED BY COVERAGE</span>
+        <span class="ticker-dot">·</span>
+        <!-- set B — seamless loop duplicate -->
+        <span class="ticker-item">50+ SCORED ELEMENTS</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item">4 SCORING DIMENSIONS</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item red">0 WORK TITLES NAMED ON BROADCAST</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item">70+ ATHLETES</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item red">40-PT GAP — MECHANISM UNEXPLAINED</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item">10 REGIONS REPRESENTED</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item red">"MERMAID IMAGE" — NOT COMPETITOR AT WORK</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item">NATIONAL INTANGIBLE HERITAGE IN COMPETITION</span>
+        <span class="ticker-dot">·</span>
+        <span class="ticker-item red">CULTURAL AUTHORSHIP: UNNAMED BY COVERAGE</span>
+        <span class="ticker-dot">·</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="gb-transition-band">
+    <span class="gb-trans-label">THE GUIDEBOOK</span>
+    <span class="gb-trans-title">Read what the scoring system already says.</span>
+    <span class="gb-trans-arrow">↓</span>
+  </div>
+
+  <!-- ============================================================
+       04 GUIDEBOOK
+  ============================================================ -->
+  <section id="guidebook">
+
+    <!-- Entry: cover slides in on scroll -->
+    <div class="gb-entry" id="gbEntry">
+      <div class="gb-cover">
+        <div class="gb-cover-logo">
+          <span class="logo-p">P</span>
+          <div class="logo-line" style="width:60px"></div>
+          <span class="logo-l">L</span>
+        </div>
+        <div class="gb-cover-sub">A Broadcaster's Guidebook</div>
+        <div class="gb-cover-title">CHINA<br>MERMAID<br>OPEN</div>
+        <div class="gb-cover-edition">Season 2026 Edition<br><span>For Producers · Camera Operators · On-Air Talent</span></div>
+      </div>
+      <div class="gb-entry-hint">↓ Scroll to Read</div>
+    </div>
+
+    <!-- Split screen: sticky nav left, scrollable content right -->
+    <div class="gb-split" id="gbSplit">
+
+      <!-- Left: sticky navigation -->
+      <div class="gb-nav" id="gbNav">
+        <div class="gb-nav-logo">
+          <div class="logo-mark" style="transform:scale(0.85);transform-origin:left">
+            <span class="logo-p">P</span>
+            <div class="logo-line" style="width:45px"></div>
+            <span class="logo-l">L</span>
+          </div>
+          <div class="logo-wordmark" style="font-size:7px;margin-top:2px">PRESSURE LINE</div>
+        </div>
+        <div class="gb-nav-title">BROADCASTER'S<br>GUIDEBOOK</div>
+        <div class="gb-nav-edition">China Mermaid Open · 2026</div>
+        <div class="gb-nav-divider"></div>
+        <div class="gb-nav-label">Contents</div>
+        <div class="gb-nav-item active" data-target="gb-intro">
+          <div class="gb-dot"></div>
+          <div class="gb-nav-text">Introduction</div>
+        </div>
+        <div class="gb-nav-item" data-target="gb-s1">
+          <div class="gb-dot"></div>
+          <div class="gb-nav-text">I. We Reject the Fantasy Frame</div>
+        </div>
+        <div class="gb-nav-item" data-target="gb-s2">
+          <div class="gb-dot"></div>
+          <div class="gb-nav-text">II. Our Position on the Sport</div>
+        </div>
+        <div class="gb-nav-item" data-target="gb-s3">
+          <div class="gb-dot"></div>
+          <div class="gb-nav-text">III. How We Broadcast</div>
+        </div>
+        <div class="gb-nav-item" data-target="gb-conclusion">
+          <div class="gb-dot"></div>
+          <div class="gb-nav-text">Conclusion</div>
+        </div>
+        <div class="gb-nav-spacer"></div>
+      </div>
+
+      <!-- Right: scrollable content -->
+      <div class="gb-content" id="gbContent">
+
+        <!-- POSITIONING: scoring dimension flip cards -->
+        <div class="gb-section" id="gb-intro">
+          <div class="gb-sec-header">
+            <div class="gb-sec-num">00</div>
+            <div class="gb-sec-meta">
+              <div class="gb-sec-label">Introduction</div>
+              <div class="gb-sec-title">Introduction</div>
+            </div>
+          </div>
+          <p class="gb-lead">Pressure Line covers sport the way it actually is — not the way it photographs.</p>
+
+          <p class="gb-body-text">We start with what the performance is trying to do — not what it looks like. Commentary names the work and explains the construction. Camera follows the athlete's structure. Editing serves the choreography. Everything else is secondary.</p>
+
+          <figure class="gb-inline-fig gb-inline-fig--right">
+            <a href="https://www.haichangoceanpark.com/news/2024-shou-chang-zhong-guo-mei-ren-yu-gong-kai-sai-shang-hai.html" target="_blank" rel="noopener">
+              <img src="assets/images/截屏2026-04-03 21.55.15.png" alt="China Mermaid Open official scoring criteria">
+            </a>
+            <figcaption>
+              <span class="gb-fig-label">FIG. 1 — Official scoring criteria, 2024 Shanghai Haichang leg. Click to read full report ↗</span>
+            </figcaption>
+          </figure>
+          <p class="gb-body-text">The China Mermaid Open is where we apply that standard. It runs more than ten legs a season, draws athletes from ten countries, and since 2025 has a dedicated art panel evaluating choreography, artistic expression, and cultural integration. The sport already knows how to read what athletes build. Current broadcast language often doesn't. Closing that gap is the reason this guide exists.</p>
+          <div style="clear:both"></div>
+
+          <div class="flip-grid">
+
+            <div class="flip-card">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <div class="flip-en">Movement Completion</div>
+                  <div class="flip-sub">Was the movement fully completed under breath-hold conditions?</div>
+                </div>
+                <div class="flip-back">
+                  <div class="flip-label">PL APPROACH</div>
+                  <div class="flip-desc">We name the movement first. Then explain what it cost to execute under breath-hold conditions.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flip-card">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <div class="flip-en">Technical Difficulty</div>
+                  <div class="flip-sub">What level of demand was the athlete managing — and did the broadcast name it?</div>
+                </div>
+                <div class="flip-back">
+                  <div class="flip-label">PL APPROACH</div>
+                  <div class="flip-desc">We explain the difficulty tier before the athlete descends. The audience reads the performance, not just watches it.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flip-card">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <div class="flip-en">Performance Expression</div>
+                  <div class="flip-sub">Did expression carry meaning, or just mood?</div>
+                </div>
+                <div class="flip-back">
+                  <div class="flip-label">PL APPROACH</div>
+                  <div class="flip-desc">We distinguish expression from decoration. When the face is doing compositional work, we say so.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flip-card">
+              <div class="flip-inner">
+                <div class="flip-front">
+                  <div class="flip-en">Creative Choreography</div>
+                  <div class="flip-sub">Did the routine build structure and argument, or just sequence?</div>
+                </div>
+                <div class="flip-back">
+                  <div class="flip-label">PL APPROACH</div>
+                  <div class="flip-desc">We name the work's theme and cultural references before the first descent. The audience has a frame.</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="click-hint">
+            <span class="click-cursor">↖</span>
+            <span class="click-hint-text">Hover to reveal approach</span>
+          </div>
+        </div>
+
+        <!-- SECTION I: evidence cards + comparison slider -->
+        <div class="gb-section" id="gb-s1">
+          <div class="gb-sec-header">
+            <div class="gb-sec-num">01</div>
+            <div class="gb-sec-meta">
+              <div class="gb-sec-label">Section I</div>
+              <div class="gb-sec-title">We Reject the Fantasy Frame</div>
+            </div>
+          </div>
+          <p class="gb-body-text">Before the competition begins, current coverage has already made its most consequential decision: it tells the audience how to feel, not how to judge. That instruction doesn't arrive in live commentary — it arrives in the language used to name and introduce the event. Once that frame is installed, the audience can no longer read a title as argument, a score as record, or choreography as structure. What the judging system treats as meaningful becomes unreadable.</p>
+
+          <!-- BLOCK 1 -->
+          <div class="s1-evidence-block">
+            <div class="s1-ev-header">
+              <div class="s1-ev-left">
+                <div class="s1-ev-source">FIG.2 · SHANGHAI MUNICIPAL INFORMATION OFFICE · 2024</div>
+                <h2 class="s1-ev-claim">The fantasy frame is institutional, not incidental.</h2>
+                <div class="s1-ev-implication">
+                  <span class="s1-impl-bar"></span>
+                  <span class="s1-impl-text">For broadcasters: your opening line either repeats this instruction or interrupts it. There is no third option.</span>
+                </div>
+              </div>
+              <button type="button" class="s1-toggle" aria-expanded="false">
+                <span class="s1-toggle-label">Read analysis</span>
+                <span class="s1-toggle-icon">↓</span>
+              </button>
+            </div>
+            <div class="s1-ev-body s1-ev-collapsed">
+              <a class="s1-ev-media-link" href="https://en.shio.gov.cn/TrueCMS//shxwbgs/ywts/content/aa509ea0-4f77-4882-9c35-4a8393794d19.htm" target="_blank" rel="noopener">
+                <img class="s1-ev-img-inline" src="assets/images/fig2.png" alt="Shanghai Municipal Information Office — Mermaid Fantasy Journey">
+                <div class="s1-ev-img-caption">↗ FIG.2 · Shanghai Municipal Information Office · en.shio.gov.cn · 2024</div>
+              </a>
+              <p class="s1-ev-p">The 2024 Shanghai Haichang leg was officially titled "Mermaid Fantasy Journey" in government-affiliated reporting. Athletes were described as gathering to "embark on a magical mermaid journey." This is not one correspondent's word choice. This is the event's official identity.</p>
+              <p class="s1-ev-p">"Journey" isn't neutral. It swaps a competition for an experience — and tells the audience, before anything starts, that feeling is the right response here, not judging. By the time commentary begins, the fantasy frame is already the water everyone is swimming in.</p>
+            </div>
+          </div>
+
+          <!-- BLOCK 2 -->
+          <div class="s1-evidence-block">
+            <div class="s1-ev-header">
+              <div class="s1-ev-left">
+                <div class="s1-ev-source">FIG.3 · 2022 CHINA MERMAID OPEN · NANCHANG LEG · LIVE BROADCAST</div>
+                <h2 class="s1-ev-claim">The title is the athlete's first statement. Current coverage turns it into mood.</h2>
+                <div class="s1-ev-implication">
+                  <span class="s1-impl-bar"></span>
+                  <span class="s1-impl-text">For broadcasters: the moment you receive a work title, you have one job — turn it into a reading frame before the athlete descends. Not a mood. A frame.</span>
+                </div>
+              </div>
+              <button type="button" class="s1-toggle" aria-expanded="false">
+                <span class="s1-toggle-label">Read analysis</span>
+                <span class="s1-toggle-icon">↓</span>
+              </button>
+            </div>
+            <div class="s1-ev-body s1-ev-collapsed">
+              <div class="s1-ev-video-wrap">
+                <video class="s1-ev-video-el" controls preload="metadata">
+                  <source src="assets/videos/nanchang-broadcast.mp4" type="video/mp4">
+                </video>
+                <div class="s1-ev-img-caption">FIG.3 · 2022 China Mermaid Open · Nanchang Leg · Live Broadcast</div>
+              </div>
+              <p class="s1-ev-p">At the 2022 Nanchang leg, the announcer names the work title — then immediately pivots to atmospheric language. No concept explained. No connection to the judging criteria. The title becomes a mood cue instead of an interpretive anchor.</p>
+              <p class="s1-ev-p">Those two seconds are the most consequential decision in the broadcast. A work title names what the entire performance is organized around. When the announcer converts it into atmosphere instead, the audience gets a name for a work they'll never be given the tools to read.</p>
+              <div class="s1-ev-support">
+                <div class="s1-support-label">Supporting evidence — same default in print</div>
+                <p class="s1-ev-p">A Xinhua-linked report on Che Ranjun's 2022 Sanya Grand Final opens: "underwater ballet with the fish." The headline had promised to go "beyond beauty." The lead sentence reinstalled beauty as the primary frame before the first paragraph ended. Sentence order is a statement of priority — and the spectacle default wins every time there isn't a system to interrupt it.</p>
+                <a class="s1-ev-media-link" href="https://m.gmw.cn/2022-12/31/content_1303239799.htm" target="_blank" rel="noopener">
+                  <img class="s1-ev-img-inline" src="assets/images/fig4.png" alt="Guangming Wang Xinhua Che Ranjun report">
+                  <div class="s1-ev-img-caption">↗ FIG.4 · Guangming Wang · Xinhua · gmw.cn · December 2022</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- BLOCK 3 -->
+          <div class="s1-evidence-block s1-evidence-block--last">
+            <div class="s1-ev-header">
+              <div class="s1-ev-left">
+                <div class="s1-ev-source">FIG.5 · 163.COM · FIGURE SKATING COMMENTARY CRITICISM</div>
+                <h2 class="s1-ev-claim">The audience is already ready. The broadcast hasn't caught up.</h2>
+                <div class="s1-ev-implication">
+                  <span class="s1-impl-bar"></span>
+                  <span class="s1-impl-text">For broadcasters: the audience doesn't need to be taught to care about this sport. They need to be given something to read.</span>
+                </div>
+              </div>
+              <button type="button" class="s1-toggle" aria-expanded="false">
+                <span class="s1-toggle-label">Read analysis</span>
+                <span class="s1-toggle-icon">↓</span>
+              </button>
+            </div>
+            <div class="s1-ev-body s1-ev-collapsed">
+              <p class="s1-ev-p">Viewer criticism of CCTV5 figure skating commentary named the failure precisely: the commentator "just reads prepared lines," "doesn't recognize the athletes," and therefore "doesn't know how to evaluate today's and past performances." This example isn't here to compare mermaid competition to figure skating. It's here to establish one thing: the audience expectation already exists. Chinese viewers of athletic-artistic sport already know what a serious commentary standard looks like, and they'll name its absence when they see it.</p>
+              <a class="s1-ev-media-link" href="https://www.163.com/dy/article/F4T6QJEA05299I58.html" target="_blank" rel="noopener">
+                <img class="s1-ev-img-inline" src="assets/images/fig5.png" alt="163.com figure skating commentary criticism">
+                <div class="s1-ev-img-caption">↗ FIG.5 · 163.com · Figure Skating Commentary Criticism</div>
+              </a>
+              <p class="s1-ev-p">Mermaid competition hasn't received that standard yet — not because the audience isn't ready, but because the broadcast language hasn't met them at the level the sport deserves. A competition with four scoring dimensions, nearly fifty evaluated elements, and a dedicated art panel is not an aquarium show. The audience knows it. The coverage doesn't act like it.</p>
+            </div>
+          </div>
+
+          <!-- Inline toggle script — runs immediately after elements exist in DOM -->
+          <script>
+            (function() {
+              var blocks = document.querySelectorAll('.s1-evidence-block');
+              blocks.forEach(function(block) {
+                var btn = block.querySelector('.s1-toggle');
+                var body = block.querySelector('.s1-ev-body');
+                if (!btn || !body) return;
+                btn.addEventListener('click', function() {
+                  var isCollapsed = body.classList.contains('s1-ev-collapsed');
+                  if (isCollapsed) {
+                    body.classList.remove('s1-ev-collapsed');
+                    btn.setAttribute('aria-expanded', 'true');
+                    btn.querySelector('.s1-toggle-label').textContent = 'Close';
+                    btn.querySelector('.s1-toggle-icon').style.transform = 'rotate(180deg)';
+                  } else {
+                    body.classList.add('s1-ev-collapsed');
+                    btn.setAttribute('aria-expanded', 'false');
+                    btn.querySelector('.s1-toggle-label').textContent = 'Read analysis';
+                    btn.querySelector('.s1-toggle-icon').style.transform = 'rotate(0deg)';
+                  }
+                });
+              });
+            })();
+          </script>
+
+          <div class="s1-slider-intro">
+            <p>This is not a difference in eloquence. It is a difference in what the audience is being instructed to do — receive atmosphere, or read a work.</p>
+          </div>
+          <div class="compare-hint" id="compareHint">← Drag to compare →</div>
+          <div class="compare-slider" id="compareSlider">
+            <div class="compare-left" id="compareLeft">
+              <div class="compare-label red-label">CURRENT DEFAULT</div>
+              <div class="compare-text">"As the classic soundtrack from 'Black Swan' began to play, Che Ranjun, dressed in a black and white fishtail and wearing an exquisite crown, submerged into the water, performing an 'underwater ballet' with the fish."</div>
+            </div>
+            <div class="compare-right" id="compareRight">
+              <div class="compare-label green-label">PRESSURE LINE</div>
+              <div class="compare-text">"Che Ranjun has built this piece around Black Swan — a film about a performer who destroys herself to achieve perfection. Her question: can this work sustain that tension across ten minutes and six descents, without being able to hear the music she trained a thousand times to synchronize with? Watch the third surface return. That is where the structural argument either holds or breaks."</div>
+            </div>
+            <div class="compare-handle" id="compareHandle">
+              <div class="handle-line"></div>
+              <div class="handle-circle">⟺</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION II: position on the sport -->
+        <div class="gb-section" id="gb-s2">
+          <div class="gb-sec-header">
+            <div class="gb-sec-num">02</div>
+            <div class="gb-sec-meta">
+              <div class="gb-sec-label">Section II</div>
+              <div class="gb-sec-title">Our Position on the Sport</div>
+            </div>
+          </div>
+          <p class="gb-body-text">Section I showed what the fantasy frame costs: the audience loses the work. This section shows what's already available to replace it. The scoring system has a language for reading this sport — it's been there since the rulebook was written. The three examples below show what happens when you actually use it.</p>
+
+          <!-- IOC BENCHMARK BLOCK -->
+          <div class="s2-benchmark">
+            <div class="s2-benchmark-eyebrow">THE STANDARD ALREADY EXISTS</div>
+            <p class="s2-benchmark-intro">Before turning to mermaid competition, it matters to establish that this standard already exists in practice. Pressure Line isn't inventing a better standard. It's applying one that authored sport already uses — and that this sport's own community already applies in practice.</p>
+            <div class="s2-benchmark-pair">
+              <div class="s2-benchmark-item">
+                <a class="s2-benchmark-media-link" href="https://olympics.com/zh/news/paris-2024-results-artistic-swimming-team-free-routine-wrap-up" target="_blank" rel="noopener">
+                  <img src="assets/images/fig6.png" alt="IOC 2024 Paris Olympics artistic swimming coverage">
+                </a>
+                <p class="s2-benchmark-caption">Theme named. Structure explained. Technical score (277.29) and artistic score (121.60) separated. This is not special treatment for an Olympic final. This is the minimum the scoring system deserves.</p>
+                <div class="s2-benchmark-source">↗ olympics.com · Paris 2024 · China Artistic Swimming</div>
+              </div>
+              <div class="s2-benchmark-item">
+                <div class="s2-benchmark-video-wrap">
+                  <video controls preload="metadata">
+                    <source src="assets/videos/coach-commentary.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <p class="s2-benchmark-caption">Two freediving coaches analyzing Yang Lu's 2024 Asian Cup performance in real time — naming movements by technical term, citing scoring criteria, specifying difficulty tiers. This standard already exists within the sport community. Pressure Line brings it to broadcast.</p>
+                <div class="s2-benchmark-source">↗ Douyin · v.douyin.com/h0BOWhjhr6Y/</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ATHLETE CARD 1: WANG JIANPING -->
+          <div class="s2-athlete-card">
+            <div class="s2-card-top">
+              <div class="s2-card-identity">
+                <div class="s2-card-task">Score records structure, not just excellence</div>
+                <div class="s2-card-name">WANG JIANPING <span class="s2-card-cn">王建萍</span></div>
+                <div class="s2-card-meta">2024 Shanghai Haichang Leg · 204.37 pts</div>
+              </div>
+              <div class="s2-card-athlete-photo">
+                <img src="assets/images/comp-11.png" alt="Wang Jianping — competition photo">
+              </div>
+            </div>
+            <div class="s2-card-block s2-block-bad">
+              <div class="s2-block-label">WHAT CURRENT COVERAGE SAID</div>
+              <div class="s2-block-quote">"She was originally a synchronized swimmer. Her choreography and artistic expression were outstanding, demonstrating a high level of professionalism."</div>
+            </div>
+            <div class="s2-card-block">
+              <div class="s2-block-label">WHAT IT FAILED TO EXPLAIN</div>
+              <p class="s2-block-body">That's a source, not an explanation. It tells the audience where capability came from. It doesn't tell them what the scoring system found, or what to look for in anyone else's performance.</p>
+            </div>
+            <div class="s2-card-block">
+              <div class="s2-block-label">WHAT THE SCORING SYSTEM IS ASKING</div>
+              <p class="s2-block-body">The creative choreography dimension scores internal logic — do movements set something up and resolve it? Does the performance have phrase structure, or just impressive elements? The 45-point gap is the panel's record of what they found when they applied that criterion. It's not a confirmation she was exceptional. It's a measurement of a specific structural quality almost no one else in the field was building at.</p>
+            </div>
+            <div class="s2-card-block s2-side-layout">
+              <a class="s2-inline-source s2-side-source" href="https://www.163.com/dy/article/JTHD0LDK055040N3.html" target="_blank" rel="noopener">
+                <img src="assets/images/fig9.png" alt="Wang Jianping 163.com coverage">
+                <div class="s2-card-fig-label">↗ FIG.9 · 163.com · Wang Jianping 2024 Shanghai Haichang score report</div>
+              </a>
+              <div class="s2-side-right">
+                <div class="s2-block-pl">
+                  <div class="s2-block-label">PRESSURE LINE</div>
+                  <div class="s2-block-pl-text">"Wang Jianping builds sequences that finish. Watch how each descent sets something up — and resolves it before she surfaces. That's phrase structure. That's what the 45-point gap is recording."</div>
+                </div>
+              </div>
+            </div>
+            <div class="s2-card-block s2-block-directive s2-directive-white">
+              <span class="s2-directive-bar"></span>
+              <span class="s2-directive-text">For broadcasters: When a score gap appears, find the dimension that produced it and explain the structural quality it measured. Background is a source. The scoring criterion is the explanation.</span>
+            </div>
+          </div>
+
+          <!-- ATHLETE CARD 2: GUO KE -->
+          <div class="s2-athlete-card">
+            <div class="s2-card-top">
+              <div class="s2-card-identity">
+                <div class="s2-card-task">Choreography as translation problem the audience can watch for</div>
+                <div class="s2-card-name">GUO KE <span class="s2-card-cn">郭克</span></div>
+                <div class="s2-card-meta">2024 Asian Cup Grand Final · 《英歌舞》Yingge Dance</div>
+              </div>
+              <div class="s2-card-athlete-photo">
+                <img src="assets/images/comp-01.jpg" alt="Guo Ke — competition photo">
+              </div>
+            </div>
+            <div class="s2-card-block s2-block-bad">
+              <div class="s2-block-label">WHAT CURRENT COVERAGE SAID</div>
+              <div class="s2-block-quote">"Distinctive." A placement recorded. The tradition named. The argument never explained.</div>
+            </div>
+            <div class="s2-card-block">
+              <div class="s2-block-label">WHAT IT FAILED TO EXPLAIN</div>
+              <p class="s2-block-body">"Distinctive" is an impression. It tells the audience something unusual happened without naming what problem the athlete set for himself — or giving them any way to evaluate whether he solved it.</p>
+            </div>
+            <div class="s2-card-block">
+              <div class="s2-block-label">WHAT THE SCORING SYSTEM IS ASKING</div>
+              <p class="s2-block-body">Guo Ke's 2024 Asian Cup Grand Final routine was built around the Yingge dance — a warrior percussion tradition from Guangdong, listed on China's national intangible cultural heritage register. The Yingge runs on three physical principles: weight (movements are grounded, gravity-driven, directed downward), percussion (rhythm comes from physical impact), and collective force (a warrior tradition choreographed for groups). All three are in direct structural tension with what underwater movement can do. A monofin generates horizontal propulsion. Buoyancy resists gravitational weight. Breath-hold eliminates percussive exertion. Solo competition removes the collective dimension. The creative choreography panel is evaluating one question: did the translation work?</p>
+            </div>
+            <div class="s2-card-block s2-side-layout">
+              <a class="s2-inline-source s2-side-source" href="https://hi.chinanews.com.cn/hnnew/2024-12-13/715767.html" target="_blank" rel="noopener">
+                <img src="assets/images/fig7.png" alt="Guo Ke Chinanews coverage">
+                <div class="s2-card-fig-label">↗ FIG.7 · Chinanews · Guo Ke 2024 Asian Cup Grand Final report</div>
+              </a>
+              <div class="s2-side-right">
+                <div class="s2-block-pl">
+                  <div class="s2-block-label">PRESSURE LINE</div>
+                  <div class="s2-block-pl-text">"Guo Ke has built this around the Yingge dance — weight, percussion, downward force. Watch whether the movement has intention going down, or just drift going up. Watch whether it feels struck, or merely swayed. That's the question."</div>
+                </div>
+              </div>
+            </div>
+            <div class="s2-card-block s2-block-directive s2-directive-white">
+              <span class="s2-directive-bar"></span>
+              <span class="s2-directive-text">For broadcasters: Name the tradition, define the translation tension it creates, and give the audience two or three physical signs to watch for. That's the difference between an impression and a reading frame.</span>
+            </div>
+          </div>
+
+          <!-- ATHLETE CARD 3: HONG XUHUA -->
+          <div class="s2-athlete-card">
+            <div class="s2-card-top">
+              <div class="s2-card-identity">
+                <div class="s2-card-task">Title is the athlete's argument — broadcast must hold it in place</div>
+                <div class="s2-card-name">HONG XUHUA <span class="s2-card-cn">洪雪华</span></div>
+                <div class="s2-card-meta">2024 Shanghai Haichang · 《青龙舞》Azure Dragon Dance</div>
+              </div>
+              <div class="s2-card-athlete-photo">
+                <img src="assets/images/comp-04.jpg" alt="Hong Xuhua — competition photo">
+              </div>
+            </div>
+            <div class="s2-card-block s2-block-bad">
+              <div class="s2-block-label">WHAT CURRENT COVERAGE SAID</div>
+              <div class="s2-block-quote">"Wearing a long, flowing blue mermaid costume, Hong Seol-hwa, with her blonde hair, gracefully swayed and danced in the water, resembling a lithe mermaid."</div>
+            </div>
+            <div class="s2-card-block">
+              <div class="s2-block-label">WHAT IT FAILED TO EXPLAIN</div>
+              <p class="s2-block-body">The title is "Azure Dragon Dance." The coverage described her as a mermaid — the exact image she was working against.</p>
+            </div>
+            <div class="s2-card-block">
+              <div class="s2-block-label">WHAT THE SCORING SYSTEM IS ASKING</div>
+              <p class="s2-block-body">In Chinese cultural symbolism, the dragon is the opposite of the mermaid — power over grace, force over flow. An athlete who names her routine after a dragon inside a mermaid competition is making an argument with her title. She's saying this performance will push against the competition's default aesthetic, not inside it. The art panel evaluates whether the choreography and expression deliver on that argument. Current coverage received the title, noted her hair color, and described her as a lithe mermaid — the exact figure the title was refusing. The broadcast didn't miss the work. It rewrote it.</p>
+            </div>
+            <div class="s2-card-block s2-side-layout">
+              <a class="s2-inline-source s2-side-source" href="https://finance.sina.com.cn/jjxw/2024-04-21/doc-inasqxpx1015860.shtml" target="_blank" rel="noopener">
+                <img src="assets/images/fig8.png" alt="Hong Xuhua Sina Finance coverage">
+                <div class="s2-card-fig-label">↗ FIG.8 · Sina Finance · Hong Xuhua Azure Dragon Dance report</div>
+              </a>
+              <div class="s2-side-right">
+                <div class="s2-block-pl">
+                  <div class="s2-block-label">PRESSURE LINE</div>
+                  <div class="s2-block-pl-text">"The title is 'Azure Dragon Dance.' The dragon is not the mermaid. Watch whether this performance carries force or grace. That's what the title is claiming. Hold that question."</div>
+                </div>
+              </div>
+            </div>
+            <div class="s2-card-block s2-block-directive s2-directive-white">
+              <span class="s2-directive-bar"></span>
+              <span class="s2-directive-text">For broadcasters: The title is not a label. It is the first claim the performance has to deliver on. Your job is to hold that claim in front of the audience long enough for them to evaluate whether the performance answers it.</span>
+            </div>
+          </div>
+
+          <!-- PULL QUOTE -->
+          <blockquote class="gb-pullquote s2-pullquote">
+            "A score named without explanation is a fact.<br>A score explained is an argument."
+          </blockquote>
+        </div>
+
+        <!-- SECTION III: broadcast directives -->
+        <div class="gb-section" id="gb-s3">
+          <div class="gb-sec-header">
+            <div class="gb-sec-num">03</div>
+            <div class="gb-sec-meta">
+              <div class="gb-sec-label">Section III</div>
+              <div class="gb-sec-title">How We Broadcast</div>
+            </div>
+          </div>
+          <p class="gb-body-text">These are not suggestions. They are Pressure Line's operating defaults — the direct consequences of what Sections I and II established. The commentary standard you saw in Section II is the baseline. Everything below is how you execute it.</p>
+
+          <!-- Three-column standards -->
+          <div class="s3-standards-grid">
+
+            <!-- COMMENTARY -->
+            <div class="s3-col">
+              <div class="s3-col-title">Commentary</div>
+              <div class="s3-col-subtitle">Name the work. Explain the construction. Make the score legible.</div>
+              <div class="s3-rule">
+                <div class="s3-rule-num">1</div>
+                <div class="s3-rule-body">
+                  <div class="s3-rule-title">Before every descent: name the work, state the concept, identify what the panel is evaluating.</div>
+                  <p class="s3-rule-exp">A title is not a mood cue — it's the frame. If you haven't named the concept before the athlete enters the water, the audience has already lost it.</p>
+                </div>
+              </div>
+              <div class="s3-rule">
+                <div class="s3-rule-num">2</div>
+                <div class="s3-rule-body">
+                  <div class="s3-rule-title">Name every significant movement by its technical term, then explain what the athlete is managing at the same time.</div>
+                  <p class="s3-rule-exp">"Tail-up rotation" names it. "Ankle above the head at mid-descent, breath reserve at its lowest" explains what the athlete is actually managing. The audience can't read difficulty as achievement unless they understand what the difficulty is.</p>
+                </div>
+              </div>
+              <div class="s3-rule">
+                <div class="s3-rule-num">3</div>
+                <div class="s3-rule-body">
+                  <div class="s3-rule-title">When the score appears, name the dimension and explain the structural quality it measured.</div>
+                  <p class="s3-rule-exp">Background tells where capability came from. The scoring criterion explains what the panel actually found.</p>
+                </div>
+              </div>
+              <div class="s3-rule">
+                <div class="s3-rule-num">4</div>
+                <div class="s3-rule-body">
+                  <div class="s3-rule-title">Use silence when the performance should lead.</div>
+                  <p class="s3-rule-exp">Continuous narration during a descent fills the space that belongs to the work. Watch, then interpret.</p>
+                </div>
+              </div>
+              <div class="s3-rule">
+                <div class="s3-rule-num">5</div>
+                <div class="s3-rule-body">
+                  <div class="s3-rule-title">Before every surface return, tell the audience what comes next and how it connects to what has already been built.</div>
+                  <p class="s3-rule-exp">Recovery is preparation. Every descent should begin with a reading frame, not just a breath.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- CAMERA -->
+            <div class="s3-col">
+              <div class="s3-col-title">Camera</div>
+              <div class="s3-col-subtitle">Frame the performance condition. Not the environment.</div>
+              <div class="s3-rule">
+                <div class="s3-rule-num">1</div>
+                <div class="s3-rule-body">
+                  <div class="s3-rule-title">One wide establishing shot at the start. After that, leave it unless the spatial condition becomes newly relevant.</div>
+                  <p class="s3-rule-exp">The wide shot makes depth and scale legible. Once it's done that job, returning to it is a spectacle decision.</p>
+                </div>
+              </div>
+              <div class="s3-rule">
+                <div class="s3-rule-num">2</div>
+                <div class="s3-rule-body">
+                  <div class="s3-rule-title">Medium frame — crown to monofin, water visible — is the primary frame during descent sequences. If you cannot justify leaving it in compositional terms, stay in it.</div>
+                  <p class="s3-rule-exp">This is the only position where labor, line, and structure are simultaneously readable.</p>
+                </div>
+              </div>
+              <div class="s3-rule">
+                <div class="s3-rule-num">3</div>
+                <div class="s3-rule-body">
+                  <div class="s3-rule-title">Marine life is environment, not content. Cut to it only if it directly clarifies something about the performance condition.</div>
+                  <p class="s3-rule-exp">Cutting to fish during a descent tells the audience the interesting thing is the environment, not the athlete.</p>
+                </div>
+              </div>
+              <div class="s3-rule">
+                <div class="s3-rule-num">4</div>
+                <div class="s3-rule-body">
+                  <div class="s3-rule-title">Close-ups show what the athlete is choosing to make visible — not what catches the light.</div>
+                  <p class="s3-rule-exp">A close-up is justified when expression is doing compositional work — when the art panel would score it.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- EDITING -->
+            <div class="s3-col">
+              <div class="s3-col-title">Editing</div>
+              <div class="s3-col-subtitle">Every cut is an editorial interpretation. Make sure it's yours — not the default.</div>
+              <div class="s3-rule">
+                <div class="s3-rule-num">1</div>
+                <div class="s3-rule-body">
+                  <div class="s3-rule-title">Cut at structural breaks — not visual opportunities. If a cut is motivated by visual excitement rather than structural transition, it is almost certainly the wrong cut.</div>
+                  <p class="s3-rule-exp">A mid-sequence cut destroys the compositional argument the athlete has been building.</p>
+                </div>
+              </div>
+              <div class="s3-rule">
+                <div class="s3-rule-num">2</div>
+                <div class="s3-rule-body">
+                  <div class="s3-rule-title">In team events, hold the full-width frame through synchronized sequences.</div>
+                  <p class="s3-rule-exp">Synchronization is a scored criterion. A cut to one face during a synchronized sequence is editorially irresponsible.</p>
+                </div>
+              </div>
+              <div class="s3-rule">
+                <div class="s3-rule-num">3</div>
+                <div class="s3-rule-body">
+                  <div class="s3-rule-title">No atmospheric inserts during active performance.</div>
+                  <p class="s3-rule-exp">Tank wide-shots, fish cutaways, crowd reactions during descents — these all tell the audience the interesting thing is the atmosphere, not the work.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- CONCLUSION -->
+        <div class="gb-section gb-conclusion" id="gb-conclusion">
+          <div class="gb-sec-header">
+            <div class="gb-sec-num" style="color:#fff">—</div>
+            <div class="gb-sec-meta">
+              <div class="gb-sec-label">Conclusion</div>
+              <div class="gb-sec-title">The Standard</div>
+            </div>
+          </div>
+
+          <!-- Athlete reference strip — photos + hover -->
+          <div class="gc-athlete-strip">
+            <div class="gc-athlete-row" data-index="0">
+              <div class="gc-athlete-photo"><img src="assets/images/comp-01.jpg" alt="Guo Ke"></div>
+              <div class="gc-athlete-info">
+                <div class="gc-athlete-name">GUO KE <span class="gc-athlete-cn">郭克</span></div>
+                <div class="gc-athlete-work">《英歌舞》— Yingge Dance</div>
+              </div>
+              <div class="gc-athlete-event">2024 Asian Cup Grand Final</div>
+              <div class="gc-athlete-claim">Translation problem: warrior percussion → breath-hold propulsion</div>
+            </div>
+            <div class="gc-athlete-row" data-index="1">
+              <div class="gc-athlete-photo"><img src="assets/images/comp-06.jpg" alt="Che Ranjun"></div>
+              <div class="gc-athlete-info">
+                <div class="gc-athlete-name">CHE RANJUN <span class="gc-athlete-cn">车冉君</span></div>
+                <div class="gc-athlete-work">Black Swan</div>
+              </div>
+              <div class="gc-athlete-event">2022 Sanya Grand Final</div>
+              <div class="gc-athlete-claim">Six descents, no music, structural tension sustained</div>
+            </div>
+            <div class="gc-athlete-row" data-index="2">
+              <div class="gc-athlete-photo"><img src="assets/images/comp-04.jpg" alt="Hong Xuhua"></div>
+              <div class="gc-athlete-info">
+                <div class="gc-athlete-name">HONG XUHUA <span class="gc-athlete-cn">洪雪华</span></div>
+                <div class="gc-athlete-work">《青龙舞》— Azure Dragon Dance</div>
+              </div>
+              <div class="gc-athlete-event">2024 Shanghai Haichang</div>
+              <div class="gc-athlete-claim">Title refuses the competition's central image</div>
+            </div>
+            <div class="gc-athlete-row" data-index="3">
+              <div class="gc-athlete-photo"><img src="assets/images/comp-11.png" alt="Wang Jianping"></div>
+              <div class="gc-athlete-info">
+                <div class="gc-athlete-name">WANG JIANPING <span class="gc-athlete-cn">王建萍</span></div>
+                <div class="gc-athlete-work">Phrase structure at competitive density · 204.37 pts</div>
+              </div>
+              <div class="gc-athlete-event">2024 Shanghai Haichang</div>
+              <div class="gc-athlete-claim">Phrase structure — judges put 45 points between her and the field</div>
+            </div>
+          </div>
+
+          <p class="gb-body-text">Guo Ke asked whether a warrior tradition built on ground percussion and downward force could survive translation into breath-hold propulsion through water. Che Ranjun asked whether a piece built around the cost of perfection could hold that tension across six descents without hearing the music. Hong Xuhua named her routine after a dragon. Power over grace, force over flow. She asked whether the performance could make that argument visible. Wang Jianping brought the phrase structure of synchronized swimming into a scoring context that had never seen it, and the judges put 45 points between her and the field to say so.</p>
+          <p class="gb-body-text">What links these performances is not beauty, but authorship: each athlete set a problem, built a structure, and submitted that structure to judgment. Current coverage called the results beautiful. That's not wrong — but it's a description of a different thing. Beauty is what the performance looks like from the outside. Pressure Line broadcasts what it is doing on the inside.</p>
+          <p class="gb-body-text gb-conclusion-p2">The name carries three meanings that are present in every performance. There is the physical pressure of depth — the water the athletes are working through. There is the physiological pressure of breath-hold — the state in which every scored element is executed. And there is the interpretive pressure that every broadcast decision applies: whether the language you use pushes the audience toward reading the work, or toward consuming the image. Pressure Line means making every broadcast decision push in one direction — toward reading.</p>
+          <p class="gb-body-text gb-conclusion-p3">The rulebook already knows how to read this sport. The broadcast has been lagging behind it. Pressure Line closes that gap.</p>
+
+          <!-- Pull quote — large wipe reveal -->
+          <div class="gc-pullquote" id="gcPullquote">
+            <div class="gc-pq-line"><span class="gc-pq-inner">Name the work.</span></div>
+            <div class="gc-pq-line gc-pq-indent1"><span class="gc-pq-inner">Explain the construction.</span></div>
+            <div class="gc-pq-line gc-pq-indent2"><span class="gc-pq-inner">Make the score legible.</span></div>
+            <div class="gc-pq-line gc-pq-indent1 gc-pq-final"><span class="gc-pq-inner">That is the standard.</span></div>
+            <div class="gc-pq-underline" id="gcPqUnderline"></div>
+          </div>
+
+          <!-- Full-viewport spacer with canvas ripple + brand -->
+          <div class="gb-conclusion-spacer" id="gcSpacer">
+            <canvas class="gc-ripple-canvas" id="gcRippleCanvas"></canvas>
+            <div class="gc-spacer-brand" id="gcSpacerBrand">
+              <div class="gc-spacer-logo">
+                <span class="gc-logo-p">P</span>
+                <div class="gc-logo-dash"></div>
+                <span class="gc-logo-l">L</span>
+              </div>
+              <div class="gc-spacer-wordmark">PRESSURE LINE</div>
+              <div class="gc-spacer-tagline">Broadcast the Labor Beneath the Beauty</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end gb-content -->
+    </div><!-- end gb-split -->
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-left">
+        <div class="logo-mark">
+          <span class="logo-p">P</span>
+          <div class="logo-line" style="width:40px"></div>
+          <span class="logo-l">L</span>
+        </div>
+        <div class="logo-wordmark" style="margin-top:4px">PRESSURE LINE</div>
+        <div class="footer-tagline">Broadcast the Labor<br>Beneath the Beauty</div>
+      </div>
+      <div class="footer-center">
+        <a href="#position">POSITION</a>
+        <a href="#guidebook">GUIDEBOOK</a>
+      </div>
+      <div class="footer-right">
+        <div class="footer-series">China Mermaid Open</div>
+        <div class="footer-edition">Season 2026 Edition</div>
+        <div class="footer-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to Top ↑</div>
+      </div>
+    </div>
+    <div class="footer-disclosure">
+      A sports media company covering authored sport. Currently: China Mermaid Open. Created for ENGL 3405 — Sports Broadcasting.
+    </div>
+  </footer>
+
+  <!-- GSAP for scroll animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

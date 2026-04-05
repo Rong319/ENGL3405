@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /Users/xi/Desktop/pressure-line/assets/images)",
+      "Bash(cp \"2022中国美人鱼公开赛｜看过即赚到_1_安少東KK_来自小红书网页版.jpg\" ../images/hero-bg.jpg)",
+      "Bash(cp \"优雅，宛如执掌万顷波涛的深海王族_1_多鱼哥哥_来自小红书网页版.jpg\" ../images/comp-01.jpg)",
+      "Bash(cp \"2025中国美人鱼公开赛暨国际精英赛圆满收官_1_糕冷小奈Yaiia_来自小红书网页版.jpg\" ../images/comp-02.jpg)",
+      "Bash(cp \"美人鱼公开赛再夺团体冠军🏆_ 凤鸣朝阳_1_蓝色的胖馆长_来自小红书网页版.jpg\" ../images/comp-03.jpg)"
+    ]
+  }
+}
