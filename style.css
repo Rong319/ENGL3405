@@ -2048,12 +2048,17 @@ button { font-family: var(--font-main); cursor: none; }
   margin: 0 0 16px 0;
 }
 .s1-ev-rhetorical {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: #3a5a3a;
-  text-transform: uppercase;
-  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 1.65;
+  color: #5a8a5a;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  border-left: 2px solid #3a6a3a;
+  background: rgba(60, 100, 60, 0.06);
+}
+.s1-ev-rhetorical strong {
+  color: #7ab87a;
+  font-weight: 600;
 }
 .s1-ev-finding {
   font-size: 13px;
