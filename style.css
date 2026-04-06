@@ -2047,6 +2047,14 @@ button { font-family: var(--font-main); cursor: none; }
   line-height: 1.4;
   margin: 0 0 16px 0;
 }
+.s1-ev-rhetorical {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #3a5a3a;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
 .s1-ev-finding {
   font-size: 13px;
   line-height: 1.7;
