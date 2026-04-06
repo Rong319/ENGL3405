@@ -1103,10 +1103,14 @@ button { font-family: var(--font-main); cursor: none; }
   margin-bottom: 20px;
 }
 .gb-body-text {
-  font-size: 14px;
-  line-height: 1.75;
-  color: #888;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #fff;
   margin-bottom: 36px;
+}
+.gb-body-text strong {
+  color: #fff;
+  font-weight: 700;
 }
 
 /* ── dir-grid inside guidebook (narrower context) ───────────── */
@@ -1197,9 +1201,9 @@ button { font-family: var(--font-main); cursor: none; }
   margin-bottom: 8px;
 }
 .s3-rule-exp {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.8;
-  color: #666;
+  color: #fff;
 }
 
 /* ── Guidebook transition band ───────────────────────────────── */
@@ -1529,9 +1533,9 @@ button { font-family: var(--font-main); cursor: none; }
   margin-bottom: 16px;
 }
 .s2-benchmark-intro {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.8;
-  color: #bbb;
+  color: #fff;
   margin-bottom: 28px;
 }
 .s2-benchmark-pair {
@@ -1564,9 +1568,9 @@ button { font-family: var(--font-main); cursor: none; }
   border-radius: 4px;
 }
 .s2-benchmark-caption {
-  font-size: 13px;
-  line-height: 1.75;
-  color: #bbb;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #fff;
 }
 .s2-benchmark-source {
   font-family: 'JetBrains Mono', monospace;
@@ -1714,9 +1718,13 @@ button { font-family: var(--font-main); cursor: none; }
   margin-bottom: 12px;
 }
 .s2-block-body {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.85;
-  color: #bbb;
+  color: #fff;
+}
+.s2-block-body strong {
+  font-weight: 700;
+  color: #fff;
 }
 
 /* BAD block — gray bg, red left border */
@@ -2061,9 +2069,9 @@ button { font-family: var(--font-main); cursor: none; }
   font-weight: 600;
 }
 .s1-ev-finding {
-  font-size: 13px;
-  line-height: 1.7;
-  color: #888;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #fff;
   margin: 10px 0 16px;
 }
 .s1-ev-implication {
@@ -2155,6 +2163,13 @@ button { font-family: var(--font-main); cursor: none; }
   display: block;
   border: 1px solid rgba(255,255,255,0.1);
 }
+.s1-ev-p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.s1-ev-p strong { font-weight: 700; }
 .s1-ev-support {
   margin-top: 32px;
   padding-top: 24px;
