@@ -1998,7 +1998,7 @@ button { font-family: var(--font-main); cursor: none; }
 /* Evidence row: figure link + PL box */
 .s2-case-evidence {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 3fr;
   gap: 2px;
   margin-bottom: 28px;
   align-items: start;
