@@ -2361,8 +2361,15 @@ button { font-family: var(--font-main); cursor: none; }
   opacity: 1;
 }
 .s1-ev-img-inline { width: 100%; display: block; border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; margin-bottom: 0; }
-.s1-ev-media-link { display: block; margin: 20px 0 8px; text-decoration: none; }
+.s1-ev-media-link {
+  float: left;
+  width: 180px;
+  margin: 2px 24px 16px 0;
+  text-decoration: none;
+  flex-shrink: 0;
+}
 .s1-ev-media-link:hover .s1-ev-img-inline { border-color: rgba(255,255,255,0.3); }
+.s1-ev-body::after { content: ''; display: table; clear: both; }
 .s1-ev-video-wrap { margin: 20px 0 8px; }
 .s1-ev-video-el { width: 100%; aspect-ratio: 16/9; display: block; border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; }
 .s1-ev-content {
