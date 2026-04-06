@@ -2001,10 +2001,10 @@ button { font-family: var(--font-main); cursor: none; }
   grid-template-columns: 1fr 1fr;
   gap: 2px;
   margin-bottom: 28px;
+  align-items: start;
 }
 .s2-case-fig {
-  display: flex;
-  flex-direction: column;
+  display: block;
   text-decoration: none;
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.05);
@@ -2015,8 +2015,6 @@ button { font-family: var(--font-main); cursor: none; }
 .s2-case-fig:hover { border-color: rgba(255,255,255,0.18); }
 .s2-case-fig img {
   width: 100%;
-  flex: 1;
-  min-height: 0;
   display: block;
   object-fit: cover;
   object-position: top center;
