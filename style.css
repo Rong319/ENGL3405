@@ -2003,20 +2003,32 @@ button { font-family: var(--font-main); cursor: none; }
   margin-bottom: 28px;
 }
 .s2-case-fig {
-  display: block;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   background: rgba(255,255,255,0.02);
   border: 1px solid rgba(255,255,255,0.05);
-  padding: 20px 24px;
+  padding: 0;
   transition: border-color 0.2s;
+  overflow: hidden;
 }
 .s2-case-fig:hover { border-color: rgba(255,255,255,0.18); }
 .s2-case-fig img {
   width: 100%;
+  flex: 1;
+  min-height: 0;
   display: block;
-  border: 1px solid rgba(255,255,255,0.08);
-  margin-bottom: 12px;
+  object-fit: cover;
+  object-position: top center;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 0;
 }
+.s2-case-fig-label,
+.s2-case-fig-note {
+  padding: 0 18px;
+}
+.s2-case-fig-label { padding-top: 12px; }
+.s2-case-fig-note  { padding-bottom: 16px; }
 .s2-case-fig-label {
   font-family: 'JetBrains Mono', monospace;
   font-size: 10px;
