@@ -1876,6 +1876,213 @@ button { font-family: var(--font-main); cursor: none; }
   margin-top: 0;
 }
 
+/* ── Section II case study layout ──────────────────────────── */
+.s2-case {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 52px 0 48px;
+}
+.s2-case + .s2-transition {
+  margin-top: 0;
+}
+
+/* Header: left text block + right photo */
+.s2-case-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+.s2-case-hdr-left {
+  flex: 1;
+}
+.s2-case-num-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.s2-case-num-badge .s2-case-dim {
+  font-weight: 400;
+  color: #444;
+  letter-spacing: 0.06em;
+  margin-left: 10px;
+}
+.s2-case-name {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+.s2-case-cn {
+  font-size: 18px;
+  font-weight: 400;
+  color: #555;
+  margin-left: 10px;
+  letter-spacing: 0.02em;
+}
+.s2-case-claim {
+  font-size: 17px;
+  font-weight: 600;
+  color: #c8d8f0;
+  line-height: 1.45;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.s2-case-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #555;
+  letter-spacing: 0.04em;
+}
+.s2-case-photo {
+  width: 140px;
+  flex-shrink: 0;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.s2-case-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Body: 2-column comparison */
+.s2-case-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 32px;
+}
+.s2-case-col {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 24px 28px;
+}
+.s2-case-col-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #555;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.s2-case-quote {
+  font-size: 14px;
+  font-style: italic;
+  color: #888;
+  line-height: 1.75;
+  border-left: 2px solid rgba(255,255,255,0.1);
+  padding-left: 14px;
+  margin: 0 0 14px;
+}
+.s2-case-analysis {
+  font-size: 14px;
+  line-height: 1.85;
+  color: #fff;
+  margin: 0 0 0;
+}
+.s2-case-analysis strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Evidence row: figure link + PL box */
+.s2-case-evidence {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 28px;
+}
+.s2-case-fig {
+  display: block;
+  text-decoration: none;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 20px 24px;
+  transition: border-color 0.2s;
+}
+.s2-case-fig:hover { border-color: rgba(255,255,255,0.18); }
+.s2-case-fig img {
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 12px;
+}
+.s2-case-fig-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #4a7ab5;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+.s2-case-fig-note {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #555;
+  font-style: italic;
+}
+.s2-case-pl {
+  background: rgba(42,91,168,0.07);
+  border: 1px solid rgba(42,91,168,0.18);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.s2-case-pl-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: #4a7ab5;
+  text-transform: uppercase;
+}
+.s2-case-pl-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  line-height: 1.85;
+  color: #c8d8f0;
+  font-style: italic;
+}
+
+/* Directive bar */
+.s2-case-directive {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.s2-case-directive .s2-directive-bar {
+  display: block;
+  width: 2px;
+  min-height: 40px;
+  background: var(--red);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.s2-case-directive .s2-directive-text {
+  font-size: 13px;
+  font-style: italic;
+  color: #666;
+  line-height: 1.75;
+}
+
+/* Transition paragraph between cases */
+.s2-transition {
+  padding: 36px 0 0;
+  border-top: none;
+  color: #888;
+}
+
 /* ── Section III directive groups ───────────────────────────── */
 .gb-directive-group {
   margin-bottom: 36px;
