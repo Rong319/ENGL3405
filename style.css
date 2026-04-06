@@ -1588,6 +1588,7 @@ button { font-family: var(--font-main); cursor: none; }
 .s2-benchmark-video-wrap iframe,
 .s2-benchmark-video-wrap video {
   width: 100%;
+  aspect-ratio: 16 / 9;
   display: block;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 4px;
