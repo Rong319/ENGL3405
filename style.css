@@ -1664,6 +1664,16 @@ button { font-family: var(--font-main); cursor: none; }
   margin-top: 5px;
   letter-spacing: 0.06em;
 }
+.s2-fig-evidence {
+  font-size: 12px;
+  line-height: 1.65;
+  color: #666;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-left: 2px solid #2a3a2a;
+  background: rgba(255,255,255,0.02);
+  font-style: italic;
+}
 .s2-card-athlete-photo {
   width: 130px;
   flex-shrink: 0;
