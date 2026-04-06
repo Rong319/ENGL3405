@@ -2084,8 +2084,17 @@ button { font-family: var(--font-main); cursor: none; }
   transition: transform 0.2s;
 }
 .s1-toggle[aria-expanded="true"] .s1-toggle-icon { transform: rotate(180deg); }
-.s1-ev-body { display: block; margin-top: 32px; }
-.s1-ev-body.s1-ev-collapsed { display: none !important; }
+.s1-ev-body {
+  margin-top: 32px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  opacity: 0;
+}
+.s1-ev-body.s1-ev-open {
+  max-height: 2000px;
+  opacity: 1;
+}
 .s1-ev-img-inline { width: 100%; display: block; border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; margin-bottom: 0; }
 .s1-ev-media-link { display: block; margin: 20px 0 8px; text-decoration: none; }
 .s1-ev-media-link:hover .s1-ev-img-inline { border-color: rgba(255,255,255,0.3); }

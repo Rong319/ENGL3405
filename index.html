@@ -450,12 +450,8 @@
                   <span class="s1-impl-text">For broadcasters: your opening line either confirms the fantasy frame or breaks it. There is no third option.</span>
                 </div>
               </div>
-              <button type="button" class="s1-toggle" aria-expanded="false">
-                <span class="s1-toggle-label">Read analysis</span>
-                <span class="s1-toggle-icon">↓</span>
-              </button>
             </div>
-            <div class="s1-ev-body s1-ev-collapsed">
+            <div class="s1-ev-body">
               <a class="s1-ev-media-link" href="https://en.shio.gov.cn/TrueCMS//shxwbgs/ywts/content/aa509ea0-4f77-4882-9c35-4a8393794d19.htm" target="_blank" rel="noopener">
                 <img class="s1-ev-img-inline" src="assets/images/fig2.png" alt="Shanghai Municipal Information Office — Mermaid Fantasy Journey">
                 <div class="s1-ev-img-caption">↗ FIG.2 · Shanghai Municipal Information Office · en.shio.gov.cn · 2024</div>
@@ -477,12 +473,8 @@
                   <span class="s1-impl-text">For broadcasters: the moment you receive a work title, you have one job — give the audience a question to watch with before the athlete descends.</span>
                 </div>
               </div>
-              <button type="button" class="s1-toggle" aria-expanded="false">
-                <span class="s1-toggle-label">Read analysis</span>
-                <span class="s1-toggle-icon">↓</span>
-              </button>
             </div>
-            <div class="s1-ev-body s1-ev-collapsed">
+            <div class="s1-ev-body">
               <div class="s1-ev-video-wrap">
                 <iframe class="s1-ev-video-el" src="https://www.youtube.com/embed/6UCsXFTMS2U" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="s1-ev-img-caption">FIG.3 · 2022 China Mermaid Open · Nanchang Leg · Live Broadcast</div>
@@ -512,12 +504,8 @@
                   <span class="s1-impl-text">For broadcasters: the audience doesn't need to be taught to care about this sport. They need to be given something to read.</span>
                 </div>
               </div>
-              <button type="button" class="s1-toggle" aria-expanded="false">
-                <span class="s1-toggle-label">Read analysis</span>
-                <span class="s1-toggle-icon">↓</span>
-              </button>
             </div>
-            <div class="s1-ev-body s1-ev-collapsed">
+            <div class="s1-ev-body">
               <p class="s1-ev-p">Viewer criticism of CCTV5 figure skating commentary named the failure precisely: the commentator "just reads prepared lines," "doesn't recognize the athletes," and therefore "doesn't know how to evaluate today's and past performances." This example isn't here to compare mermaid competition to figure skating. It's here to establish one thing: the audience expectation already exists. Chinese viewers of athletic-artistic sport already know what a serious commentary standard looks like, and they'll name its absence when they see it.</p>
               <a class="s1-ev-media-link" href="https://www.163.com/dy/article/F4T6QJEA05299I58.html" target="_blank" rel="noopener">
                 <img class="s1-ev-img-inline" src="assets/images/fig5.png" alt="163.com figure skating commentary criticism">
@@ -527,28 +515,18 @@
             </div>
           </div>
 
-          <!-- Inline toggle script — runs immediately after elements exist in DOM -->
+          <!-- Scroll-triggered reveal for evidence blocks -->
           <script>
             (function() {
-              var blocks = document.querySelectorAll('.s1-evidence-block');
-              blocks.forEach(function(block) {
-                var btn = block.querySelector('.s1-toggle');
-                var body = block.querySelector('.s1-ev-body');
-                if (!btn || !body) return;
-                btn.addEventListener('click', function() {
-                  var isCollapsed = body.classList.contains('s1-ev-collapsed');
-                  if (isCollapsed) {
-                    body.classList.remove('s1-ev-collapsed');
-                    btn.setAttribute('aria-expanded', 'true');
-                    btn.querySelector('.s1-toggle-label').textContent = 'Close';
-                    btn.querySelector('.s1-toggle-icon').style.transform = 'rotate(180deg)';
-                  } else {
-                    body.classList.add('s1-ev-collapsed');
-                    btn.setAttribute('aria-expanded', 'false');
-                    btn.querySelector('.s1-toggle-label').textContent = 'Read analysis';
-                    btn.querySelector('.s1-toggle-icon').style.transform = 'rotate(0deg)';
+              var bodies = document.querySelectorAll('.s1-ev-body');
+              bodies.forEach(function(body) {
+                var io = new IntersectionObserver(function(entries) {
+                  if (entries[0].isIntersecting) {
+                    body.classList.add('s1-ev-open');
+                    io.disconnect();
                   }
-                });
+                }, { threshold: 0.15 });
+                io.observe(body.closest('.s1-evidence-block'));
               });
             })();
           </script>
