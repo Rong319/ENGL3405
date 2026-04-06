@@ -2363,10 +2363,14 @@ button { font-family: var(--font-main); cursor: none; }
 .s1-ev-img-inline { width: 100%; display: block; border: 1px solid rgba(255,255,255,0.12); border-radius: 4px; margin-bottom: 0; }
 .s1-ev-media-link {
   float: left;
-  width: 180px;
-  margin: 2px 24px 16px 0;
+  width: 240px;
+  margin: 2px 28px 16px 0;
   text-decoration: none;
   flex-shrink: 0;
+}
+.s1-ev-media-link--right {
+  float: right;
+  margin: 2px 0 16px 28px;
 }
 .s1-ev-media-link:hover .s1-ev-img-inline { border-color: rgba(255,255,255,0.3); }
 .s1-ev-body::after { content: ''; display: table; clear: both; }
