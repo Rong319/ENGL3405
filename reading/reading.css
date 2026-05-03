@@ -422,26 +422,30 @@ body.reading-page #nav {
 
 /* ── Closing block ──────────────────────────────────────────── */
 .cr-closing {
-  background: var(--cr-bg-deep);
-  padding: 120px 60px;
-  text-align: center;
   max-width: 860px;
-  margin: 80px 0 0;
+  padding: 80px 0 60px;
+}
+.cr-closing-rule {
+  width: 60px;
+  height: 3px;
+  background: var(--cr-red);
+  margin-bottom: 40px;
 }
 .cr-closing-sub {
   font-family: var(--cr-serif);
-  font-size: 36px;
+  font-size: 22px;
   font-style: italic;
-  color: #C4CDD9;
-  margin-bottom: 24px;
+  color: var(--cr-mute);
+  margin-bottom: 16px;
+  line-height: 1.5;
 }
 .cr-closing-main {
-  font-family: var(--cr-sans);
-  font-size: 64px;
-  font-weight: 900;
-  color: #fff;
+  font-family: var(--cr-serif);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--cr-text);
   letter-spacing: -0.02em;
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 /* ── References ─────────────────────────────────────────────── */
