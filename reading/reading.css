@@ -431,25 +431,28 @@ body.reading-page footer .footer-top {
 
 /* ── Closing block ──────────────────────────────────────────── */
 .cr-closing {
+  background: var(--cr-bg-deep);
   max-width: 860px;
-  border-left: 3px solid var(--cr-red);
-  padding: 8px 0 8px 28px;
-  margin: 80px 0 60px;
+  padding: 100px 60px;
+  text-align: center;
+  margin: 80px 0 0;
 }
 .cr-closing-sub {
   font-family: var(--cr-serif);
-  font-size: 19px;
+  font-size: 28px;
   font-style: italic;
-  color: var(--cr-mute);
-  margin-bottom: 10px;
-  line-height: 1.6;
+  color: #C4CDD9;
+  margin-bottom: 20px;
+  line-height: 1.5;
 }
 .cr-closing-main {
-  font-family: var(--cr-serif);
-  font-size: 28px;
-  font-weight: 600;
-  color: var(--cr-text);
-  line-height: 1.4;
+  font-family: var(--cr-sans);
+  font-size: 48px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-transform: uppercase;
 }
 
 /* ── References ─────────────────────────────────────────────── */
@@ -580,8 +583,8 @@ body.reading-page footer .footer-top {
   .cr-dropcap::first-letter { font-size: 56px; }
   .cr-anchor-block { margin: 48px -20px; padding: 80px 20px; }
   .cr-anchor-zh { font-size: 56px; }
-  .cr-closing { margin: 60px 0 40px; padding: 8px 0 8px 20px; }
-  .cr-closing-main { font-size: 22px; }
+  .cr-closing { margin: 60px 0 0; padding: 80px 20px; }
+  .cr-closing-main { font-size: 32px; }
   .cr-brand-block { margin: 0 -20px; padding: 60px 20px; }
   .cr-compare { grid-template-columns: 1fr; }
   .cr-figure--wide { width: 100%; }
