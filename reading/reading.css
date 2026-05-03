@@ -26,7 +26,11 @@ body.reading-page {
 
 body.reading-page a { color: inherit; }
 
-/* Keep nav dark — inherited from style.css */
+/* Force nav opaque on reading page — nav starts transparent on main site */
+body.reading-page #nav {
+  background: rgba(10, 10, 10, 0.97);
+  border-bottom-color: #1a1a1a;
+}
 
 /* ── Page split: TOC left + content right ──────────────────── */
 .cr-split {
@@ -270,7 +274,7 @@ body.reading-page a { color: inherit; }
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  padding: 48px 0;
+  padding: 96px 0;
 }
 .cr-pq-bar {
   width: 4px;
@@ -425,14 +429,14 @@ body.reading-page a { color: inherit; }
 }
 .cr-closing-sub {
   font-family: var(--cr-serif);
-  font-size: 32px;
+  font-size: 36px;
   font-style: italic;
   color: #C4CDD9;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 .cr-closing-main {
   font-family: var(--cr-sans);
-  font-size: 52px;
+  font-size: 64px;
   font-weight: 900;
   color: #fff;
   letter-spacing: -0.02em;
@@ -475,7 +479,8 @@ body.reading-page a { color: inherit; }
 .cr-refs-list a {
   color: var(--cr-red);
   text-decoration: underline;
-  word-break: break-all;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 .cr-refs-list a:hover { text-decoration: none; }
 
@@ -523,17 +528,18 @@ body.reading-page a { color: inherit; }
   font-family: var(--cr-mono);
   font-size: 13px;
   font-weight: 700;
-  color: var(--cr-red);
+  color: #fff;
   letter-spacing: 0.1em;
   text-decoration: none;
   border: 1px solid var(--cr-red);
+  background: var(--cr-red);
   padding: 10px 24px;
   display: inline-block;
   transition: background 0.2s, color 0.2s;
 }
 .cr-brand-link:hover {
-  background: var(--cr-red);
-  color: #fff;
+  background: transparent;
+  color: var(--cr-red);
 }
 
 /* ── Nav active state ───────────────────────────────────────── */
