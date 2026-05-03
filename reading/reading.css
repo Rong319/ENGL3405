@@ -423,29 +423,24 @@ body.reading-page #nav {
 /* ── Closing block ──────────────────────────────────────────── */
 .cr-closing {
   max-width: 860px;
-  padding: 80px 0 60px;
-}
-.cr-closing-rule {
-  width: 60px;
-  height: 3px;
-  background: var(--cr-red);
-  margin-bottom: 40px;
+  border-left: 3px solid var(--cr-red);
+  padding: 8px 0 8px 28px;
+  margin: 80px 0 60px;
 }
 .cr-closing-sub {
   font-family: var(--cr-serif);
-  font-size: 22px;
+  font-size: 19px;
   font-style: italic;
   color: var(--cr-mute);
-  margin-bottom: 16px;
-  line-height: 1.5;
+  margin-bottom: 10px;
+  line-height: 1.6;
 }
 .cr-closing-main {
   font-family: var(--cr-serif);
-  font-size: 48px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: 600;
   color: var(--cr-text);
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 /* ── References ─────────────────────────────────────────────── */
@@ -474,12 +469,14 @@ body.reading-page #nav {
 }
 .cr-refs-list li {
   font-family: var(--cr-serif);
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.75;
   color: var(--cr-text);
-  margin-bottom: 20px;
+  margin-bottom: 28px;
   padding-left: 2em;
   text-indent: -2em;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 .cr-refs-list a {
   color: var(--cr-red);
@@ -574,8 +571,8 @@ body.reading-page #nav {
   .cr-dropcap::first-letter { font-size: 56px; }
   .cr-anchor-block { margin: 48px -20px; padding: 80px 20px; }
   .cr-anchor-zh { font-size: 56px; }
-  .cr-closing { margin: 60px -20px 0; padding: 80px 20px; }
-  .cr-closing-main { font-size: 32px; }
+  .cr-closing { margin: 60px 0 40px; padding: 8px 0 8px 20px; }
+  .cr-closing-main { font-size: 22px; }
   .cr-brand-block { margin: 0 -20px; padding: 60px 20px; }
   .cr-compare { grid-template-columns: 1fr; }
   .cr-figure--wide { width: 100%; }
