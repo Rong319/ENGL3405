@@ -31,6 +31,15 @@ body.reading-page #nav {
   background: rgba(10, 10, 10, 0.97);
   border-bottom-color: #1a1a1a;
 }
+/* Restore white for nav and footer links (overridden by body a { color: inherit }) */
+body.reading-page #nav .nav-links a,
+body.reading-page #nav .logo-wordmark,
+body.reading-page footer .footer-center a,
+body.reading-page footer .footer-series,
+body.reading-page footer .footer-tagline,
+body.reading-page footer .footer-top {
+  color: var(--off-white);
+}
 
 /* ── Page split: TOC left + content right ──────────────────── */
 .cr-split {
