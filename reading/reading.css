@@ -425,7 +425,8 @@ body.reading-page #nav {
   background: var(--cr-bg-deep);
   padding: 120px 60px;
   text-align: center;
-  margin: 80px -60px 0;
+  max-width: 860px;
+  margin: 80px 0 0;
 }
 .cr-closing-sub {
   font-family: var(--cr-serif);
