@@ -128,12 +128,13 @@ body.reading-page a { color: inherit; }
 
 .cr-title {
   font-family: var(--cr-serif);
-  font-size: 56px;
+  font-size: 48px;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.15;
   color: var(--cr-text);
   letter-spacing: -0.01em;
   margin-bottom: 28px;
+  white-space: nowrap;
 }
 
 .cr-rule {
