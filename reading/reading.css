@@ -113,7 +113,7 @@ body.reading-page a { color: inherit; }
 /* ── Hero ───────────────────────────────────────────────────── */
 .cr-hero {
   padding: 80px 0 80px;
-  max-width: 680px;
+  max-width: 860px;
 }
 
 .cr-eyebrow {
@@ -195,7 +195,7 @@ body.reading-page a { color: inherit; }
 
 /* ── Section layout ─────────────────────────────────────────── */
 .cr-section {
-  max-width: 680px;
+  max-width: 860px;
   padding: 80px 0 40px;
 }
 
@@ -441,7 +441,7 @@ body.reading-page a { color: inherit; }
 
 /* ── References ─────────────────────────────────────────────── */
 .cr-refs {
-  max-width: 680px;
+  max-width: 860px;
   padding: 80px 0 60px;
 }
 .cr-refs-rule {
