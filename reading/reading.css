@@ -26,6 +26,9 @@ body.reading-page {
 
 body.reading-page a { color: inherit; }
 
+/* Hide scroll progress bar — not used on reading page */
+body.reading-page .scroll-progress { display: none; }
+
 /* Force nav opaque on reading page — nav starts transparent on main site */
 body.reading-page #nav {
   background: rgba(10, 10, 10, 0.97);
