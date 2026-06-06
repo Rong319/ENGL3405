@@ -35,16 +35,7 @@
     overflow-x: hidden;
   }
 
-  /* film grain overlay */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.04;
-    z-index: 100;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-  }
+  /* film grain overlay — excluded from video page to preserve playback quality */
 
   /* ===== NAV ===== */
   nav.site-nav {
@@ -310,7 +301,7 @@
   <p class="dek reveal d2">In 2024 the ISU quietly retired figure skating's most famous illegal element. The institution called it a tribute. A tribute is a lighter thing to carry than an apology.</p>
 
   <div class="video-frame reveal d3">
-    <iframe src="https://www.youtube.com/embed/oGdQ1VpymCo" title="The One Who Broke the Ice" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/oGdQ1VpymCo?vq=hd1080&rel=0" title="The One Who Broke the Ice" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 
   <div class="caption reveal d3">
