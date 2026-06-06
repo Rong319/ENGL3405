@@ -302,7 +302,7 @@
   <p class="dek reveal d2">In 2024 the ISU quietly retired figure skating's most famous illegal element. The institution called it a tribute. A tribute is a lighter thing to carry than an apology.</p>
 
   <div class="video-frame">
-    <div id="yt-player"></div>
+    <iframe src="https://player.vimeo.com/video/1198993595?badge=0&autopause=0&quality_selector=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
   </div>
 
   <div class="caption reveal d3">
@@ -318,28 +318,5 @@
   </div>
 </footer>
 
-<script>
-  var tag = document.createElement('script');
-  tag.src = 'https://www.youtube.com/iframe_api';
-  document.head.appendChild(tag);
-
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player('yt-player', {
-      videoId: 'oGdQ1VpymCo',
-      playerVars: { rel: 0, modestbranding: 1 },
-      events: {
-        onReady: function(e) {
-          e.target.setPlaybackQuality('hd1080');
-        },
-        onStateChange: function(e) {
-          if (e.data === YT.PlayerState.PLAYING) {
-            e.target.setPlaybackQuality('hd1080');
-          }
-        }
-      }
-    });
-  }
-</script>
 </body>
 </html>
