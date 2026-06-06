@@ -166,7 +166,8 @@
     width: 56px; height: 3px;
   }
 
-  .video-frame iframe {
+  .video-frame iframe,
+  #yt-player {
     width: 100%;
     height: 100%;
     border: 0;
@@ -301,7 +302,7 @@
   <p class="dek reveal d2">In 2024 the ISU quietly retired figure skating's most famous illegal element. The institution called it a tribute. A tribute is a lighter thing to carry than an apology.</p>
 
   <div class="video-frame">
-    <iframe src="https://www.youtube.com/embed/oGdQ1VpymCo?rel=0" title="The One Who Broke the Ice" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div id="yt-player"></div>
   </div>
 
   <div class="caption reveal d3">
@@ -317,5 +318,28 @@
   </div>
 </footer>
 
+<script>
+  var tag = document.createElement('script');
+  tag.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(tag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player('yt-player', {
+      videoId: 'oGdQ1VpymCo',
+      playerVars: { rel: 0, modestbranding: 1 },
+      events: {
+        onReady: function(e) {
+          e.target.setPlaybackQuality('hd1080');
+        },
+        onStateChange: function(e) {
+          if (e.data === YT.PlayerState.PLAYING) {
+            e.target.setPlaybackQuality('hd1080');
+          }
+        }
+      }
+    });
+  }
+</script>
 </body>
 </html>
