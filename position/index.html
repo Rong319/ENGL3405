@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>What Pressure Line Is For — Pressure Line</title>
+<meta name="description" content="The editorial position behind Pressure Line. A small media masthead that pays attention to what sports broadcasts choose to show — and what they choose to leave out." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #f4f1ea;
+    --ink-dim: #a8a39a;
+    --ink-faint: #6a665e;
+    --paper: #0a0a0b;
+    --paper-2: #131316;
+    --red: #e63946;
+    --rule: #2a2a2e;
+    --serif: "Fraunces", Georgia, serif;
+    --mono: "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-feature-settings: "kern", "liga";
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* film grain overlay */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    z-index: 100;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  /* ===== NAV ===== */
+  nav.site-nav { border-bottom: 1px solid var(--rule); }
+  .nav-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 26px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+  }
+  .wordmark {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+  .wordmark::before {
+    content: "";
+    width: 9px; height: 9px;
+    background: var(--red);
+  }
+  .nav-links {
+    display: flex;
+    gap: 56px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+  .nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 160ms;
+  }
+  .nav-links a:hover { color: var(--red); }
+  .nav-links a.active { color: var(--red); }
+
+  /* ===== ARTICLE WRAP ===== */
+  article {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 100px 40px 80px;
+  }
+
+  /* ===== TITLE BLOCK ===== */
+  .kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .kicker::after {
+    content: "";
+    flex: 0 0 56px;
+    height: 1px;
+    background: var(--red);
+  }
+
+  h1.title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(44px, 7vw, 92px);
+    line-height: 0.96;
+    letter-spacing: -0.025em;
+    margin-bottom: 36px;
+    text-wrap: balance;
+  }
+  h1.title em {
+    font-style: normal;
+    color: var(--red);
+  }
+
+  .dateline {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .dateline span:last-child { color: var(--ink-dim); }
+
+  /* ===== OPENING TRIPTYCH ===== */
+  .triptych {
+    margin: 64px 0 56px;
+    display: grid;
+    gap: 28px;
+  }
+
+  .case {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 22px;
+    align-items: start;
+  }
+
+  .case-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--red);
+    padding-top: 8px;
+  }
+
+  .case p {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 1.45;
+    color: var(--ink);
+  }
+
+  .case p strong {
+    font-style: normal;
+    font-weight: 400;
+    color: var(--ink-dim);
+    display: block;
+    margin-top: 4px;
+  }
+
+  .triptych-coda {
+    margin-top: 8px;
+    padding: 28px 0 0;
+    border-top: 1px solid var(--rule);
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink-dim);
+  }
+  .triptych-coda em {
+    color: var(--ink);
+    font-style: italic;
+  }
+
+  /* ===== PIVOT LINE ===== */
+  .pivot {
+    margin: 64px 0;
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(28px, 3.5vw, 40px);
+    line-height: 1.2;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    position: relative;
+  }
+  .pivot::before,
+  .pivot::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--red);
+    margin: 28px auto;
+  }
+  .pivot .red { color: var(--red); }
+
+  /* ===== BODY PROSE ===== */
+  .body {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: 19px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  .body p + p { margin-top: 1.5em; }
+
+  /* drop cap */
+  .body > p:first-child::first-letter {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 700;
+    font-size: 5.4em;
+    line-height: 0.8;
+    float: left;
+    padding: 0.08em 0.12em 0 0;
+    color: var(--red);
+  }
+
+  .short-line {
+    text-align: center;
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    color: var(--red);
+    margin: 56px 0 !important;
+  }
+
+  /* ===== CLOSING CASCADE ===== */
+  .cascade {
+    margin: 80px 0 0;
+    padding: 56px 0 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    gap: 18px;
+    text-align: center;
+  }
+
+  .cascade > p {
+    font-family: var(--serif);
+    font-weight: 300;
+    line-height: 1.3;
+    margin: 0 !important;
+    text-wrap: balance;
+  }
+
+  .cascade > p:nth-child(1),
+  .cascade > p:nth-child(2) {
+    font-size: 22px;
+    color: var(--ink-dim);
+  }
+  .cascade > p:nth-child(3) {
+    font-size: clamp(30px, 4vw, 44px);
+    font-style: italic;
+    color: var(--ink);
+    margin: 16px 0 !important;
+  }
+  .cascade > p:nth-child(4) {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-style: italic;
+    color: var(--red);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .end-mark {
+    display: flex;
+    justify-content: center;
+    margin-top: 56px;
+  }
+  .end-mark span {
+    width: 12px;
+    height: 12px;
+    background: var(--red);
+  }
+
+  /* ===== READ ON ===== */
+  .read-on {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 80px 40px 40px;
+  }
+
+  .read-on-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 32px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .read-on-label::before {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: var(--red);
+  }
+
+  .read-on-list { display: grid; gap: 0; }
+
+  .read-on-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px;
+    align-items: center;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+    text-decoration: none;
+    color: inherit;
+    transition: padding 200ms;
+  }
+  .read-on-item:hover { padding-left: 10px; }
+  .read-on-item:hover .roi-arrow { color: var(--red); transform: translateX(4px); }
+  .read-on-item:hover .roi-section { color: var(--red); }
+
+  .roi-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .roi-section {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    transition: color 200ms;
+  }
+
+  .roi-title {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 1.3;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  .roi-arrow {
+    font-family: var(--mono);
+    font-size: 18px;
+    color: var(--ink-dim);
+    transition: color 200ms, transform 200ms;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    border-top: 1px solid var(--rule);
+    padding: 36px 40px;
+    margin-top: 60px;
+  }
+  .footer-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-tag { color: var(--ink-dim); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 880px) {
+    .nav-links { gap: 28px; }
+  }
+  @media (max-width: 720px) {
+    .nav-inner { padding: 20px 22px; gap: 16px; }
+    .nav-links { gap: 18px; font-size: 10px; letter-spacing: 0.18em; }
+    article { padding: 64px 22px 56px; }
+    .read-on { padding: 64px 22px 32px; }
+    .case { grid-template-columns: 22px 1fr; gap: 16px; }
+    .case p { font-size: 19px; }
+    .roi-title { font-size: 18px; }
+    footer { padding: 28px 22px; margin-top: 40px; }
+  }
+  @media (max-width: 540px) {
+    .nav-inner { flex-direction: column; align-items: flex-start; }
+    .nav-links { flex-wrap: wrap; gap: 16px; }
+    .dateline { font-size: 10px; }
+  }
+
+  /* ===== ENTRANCE ===== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: rise 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+  .reveal.d1 { animation-delay: 0.05s; }
+  .reveal.d2 { animation-delay: 0.16s; }
+  .reveal.d3 { animation-delay: 0.28s; }
+  @keyframes rise {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a href="/" class="wordmark">Pressure Line</a>
+    <div class="nav-links">
+      <a href="/position/" class="active">Position</a>
+      <a href="/#guidebook">Guidebook</a>
+      <a href="/reading/">Reading</a>
+      <a href="/documentary/">Documentary</a>
+    </div>
+  </div>
+</nav>
+
+<article>
+
+  <!-- title block -->
+  <div class="kicker reveal d1">The Position · Pressure Line · 2026</div>
+  <h1 class="title reveal d2">What Pressure Line<br/><em>Is For</em></h1>
+  <div class="dateline reveal d3">
+    <span>From the Editor</span>
+    <span>Published June 2026</span>
+  </div>
+
+  <!-- opening triptych -->
+  <div class="triptych">
+
+    <div class="case">
+      <div class="case-num">01</div>
+      <p>A swimmer stays underwater for minutes at a time.<strong>The broadcast follows the smile.</strong></p>
+    </div>
+
+    <div class="case">
+      <div class="case-num">02</div>
+      <p>A champion wins a major title.<strong>The first question is marriage.</strong></p>
+    </div>
+
+    <div class="case">
+      <div class="case-num">03</div>
+      <p>A figure skater lands a backflip, loses points for it, and years later the rule changes — without much interest in the person who forced that change to happen.</p>
+    </div>
+
+    <p class="triptych-coda">Small moments like these kept showing up. Different sports. Different countries. <em>The same feeling that something important had slipped out of the story.</em></p>
+  </div>
+
+  <!-- pivot line -->
+  <div class="pivot">
+    Pressure Line grew from <span class="red">that feeling.</span>
+  </div>
+
+  <!-- main body -->
+  <div class="body">
+
+    <p>We spend our time with the parts of sports coverage that are easy to pass by: the interview question after the medal, the camera angle that stays a second too long, the headline that chooses personality over performance, the tribute that arrives more comfortably than an apology. None of these decisions seem very large on their own. Together, they shape the way athletes and events are remembered.</p>
+
+    <p>Our reporting follows those moments wherever they appear. Sometimes that means long-form profiles of athletes whose careers have been edited into simpler stories. Sometimes it means broadcaster guides for sports that deserve different ways of being covered. Sometimes it means short documentaries about a single rule, a single decision, or a single piece of footage that still has something left to say. The form changes. The habit stays the same.</p>
+
+    <p>The people who find Pressure Line usually arrive with a small suspicion that something about sports coverage feels incomplete. They notice when a post-medal interview becomes part of the event itself. They notice when the camera lingers on the celebration and leaves the work outside the frame. They notice the difference between remembering someone and making things right.</p>
+
+    <p class="short-line">That is where we like to begin.</p>
+
+    <p>Every broadcast is built from choices. Someone decides where the camera goes, which statistics matter, what question gets asked first, what gets replayed, and what quietly disappears. Those choices become part of the history of the sport. They shape the way athletes are understood long after the final score is forgotten.</p>
+
+  </div>
+
+  <!-- closing cascade -->
+  <div class="cascade">
+    <p>The stories are usually still there.</p>
+    <p>They are waiting in the parts of the broadcast that everyone else moved past.</p>
+    <p>Pressure Line looks again.</p>
+    <p>Broadcast the labor beneath the beauty.</p>
+  </div>
+
+  <div class="end-mark"><span></span></div>
+
+</article>
+
+<!-- ===== READ ON ===== -->
+<section class="read-on">
+  <div class="read-on-label">Read On · From Pressure Line</div>
+  <div class="read-on-list">
+
+    <a href="/#guidebook" class="read-on-item">
+      <div class="roi-text">
+        <span class="roi-section">Guidebook</span>
+        <span class="roi-title">A field guide to the China Mermaid Open.</span>
+      </div>
+      <span class="roi-arrow">→</span>
+    </a>
+
+    <a href="/reading/" class="read-on-item">
+      <div class="roi-text">
+        <span class="roi-section">Reading</span>
+        <span class="roi-title">The post-medal interview as its own event.</span>
+      </div>
+      <span class="roi-arrow">→</span>
+    </a>
+
+    <a href="/documentary/" class="read-on-item">
+      <div class="roi-text">
+        <span class="roi-section">Documentary</span>
+        <span class="roi-title">The One Who Broke the Ice.</span>
+      </div>
+      <span class="roi-arrow">→</span>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>© 2026 Pressure Line</div>
+    <div class="footer-tag">Broadcast the labor beneath the beauty.</div>
+  </div>
+</footer>
+
+</body>
+</html>
